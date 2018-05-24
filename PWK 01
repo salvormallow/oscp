@@ -1,0 +1,78 @@
+PWK 01
+
+- Security auditing operating system and toolkit.
+- Test effectiveness of risk mitigation strategies.
+- Debian development standards.
+
+Penetration Testing
+- Ongoing cycle of research and attack against a target or boundary.
+- Structured and calculated.
+- Verify in lab before live target.
+- Use a cycle, and use again (once target has been penetrated, start again)
+
+	1. Gather Information
+	2. Service Enumeration
+	3. Penetration
+	4. Maintaining Access
+	5. House Keeping
+
+Environment
+- VPN into student network, hack way into additional networks as course progresses.
+- Certain machines require additional research and determination to compromise.
+- 8 reverts every 24 hours. Return lab system to its pristine state.
+
+Exam
+- Metaspolit encouraged in labs, not on exam
+- Nessus/OpenVAS encouraged in labs, not on exam
+
+Hints
+- Various hints throughout lab environment, they show different relationships between machines.
+
+Goals
+- Hired to perform penetration test on PWK network.
+- Get as many shells as possible on as many different machines as possible.
+- Get highest level of privileges I can on each machine (admin/root access).
+- Various machines have multiple attack vectors, look for as many exploitation methods as possible.
+- True goal is a reverse shell back to my system or GUI access on the target.
+- proof.txt files are located on each machine should be documented in lab report.
+
+Etiquette
+
+1. Do not change user passwords (add new users instead).
+2. If disabling firewall rules, restore after desired level of access.
+3. Do not leave machines in a non-exploitable state.
+4. Delete any successful and failed exploits from machine. Create exploit directory first.
+
+Restriction
+
+1. Do not ARP spoof, ARP poison, or man-in-the-middle.
+2. Do not delete or relocate key files or hints.
+3. Do not change contents of network-secret.txt or proof.txt files.
+4. Do not disrupt other students (shutdowns, kicks, blocking, hacking)
+
+Target Ordering
+
+- IP addresses of systems are not in any specific sequence. Find low hanging fruit, ignore numbering.
+- May not be able to fully compromise a network without first moving into another.
+
+Dependencies
+- Some machines require first gaining access and/or information from other machines in the labs.
+- Details on such machines are not given by course admins.
+
+Other
+- Firewalls may not allow ICMP packets
+- Not required to spend an excessive amount of time cracking root/admin passwords to systems.
+- Firewalls and networking devices are not directly exploitable. You can attempt to gain access though.
+- proof.txt are proof of access but not end goal. Gain shell.
+
+Routing
+- IT/Dev/Admin networks are not directly routable from public network.
+- Public network is routable from all other networks.
+- Use various techniques to gain access to other networks (dual-homed machines, client-side exploits).
+
+Simulated Clients
+- Can exploit simulated clients using client-side attacks.
+- Clients do things a typical human would do.
+- Hints/ifnormation will lead to finding simulated clients.
+- Thorough post-exploitation gathering may provide information.
+- Clients will perform action at different time intervals (one action per minute, etc.).
