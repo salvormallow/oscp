@@ -1,0 +1,48 @@
+Senior Security Architect
+SAN FRANCISCO, CAPLATFORM & SERVICES – INFORMATION SECURITYFULL-TIME
+Twitch is looking for a Security Architect to join our Security Architecture & Engineering group.
+
+This team is responsible for designing and implementing key security controls and event monitoring technologies, providing architectural design input across the company, participating in risk management, and being general Security subject matter experts for all kinds of various needs. We maintain separate Incident Response and Application Security teams, so while we’re hoping that you know about those things, we’d prefer it if your interest is focused on systems, services, data, and networking security. Beyond that, we’re looking for a person that wants to participate in a positive, encouraging team that cares about the people it protects. Does that sound like you, or like someone you want to be? You’ll find a Requirements section below. If you meet all the requirements then we strongly encourage you to apply. If you meet some of them but think this role sounds like something you’d be great at, then we also strongly encourage you to apply. We know that lots of good people don't give themselves enough credit for their own abilities. If you think that you're interested, and that you really might be qualified, please contact us. You can’t waste our time. Let us worry about our time. We want you to apply.
+
+As a Security Architect you will focus on providing technical direction oversight and execution guidance for several of the team’s ongoing projects. You’ll be the person the engineers turn to when they’re not sure how to do something, or which technology option best suits a project. The Engineers on this team are primarily focused on individual security project execution; the Architect is focused on major project security consulting and providing key design and direction guidance for new initiatives. We do not expect that you’re an expert in all of the team responsibility areas, but we do expect you to be fluent with almost all of them and be able to demonstrate technical expertise in several.
+
+Things You Will Do Day-To-Day:
+-Have impact on technical direction
+-Contribute high-impact guidance about major projects and undertakings
+-Act as a source of accountability for Security management; it’s expected that your perspective will often be the right one
+-Recognize, adopt and instill good practices in security engineering throughout the organization
+-Exercise risk-based judgment, and help teams to make the right security calls
+-Proactively identify security flaws and vulnerabilities. Spend time thinking both like an attacker and defender
+-Design and select control schemes and mechanisms to protect our systems, information, and users
+-Represent security implementation needs and goals with partner teams
+-Represent what’s best for Twitch’s Customers and Employees in discussions about business goals
+-Conduct sophisticated security reviews - from high level web application architecture, to OS level parameters, to complex AWS interactions, all in order to meet security goals
+
+Responsibilities
+Threat Modeling
+Authentication and Authorization concepts
+Design patterns, repeatable guidance, and where necessary, policy
+Cryptography and key materials handling
+Development of security services (mostly Python & Go)
+Network and host monitoring
+Linux systems administration
+Continuous Integration infrastructure and Source Code Repositories
+Making defensible and repeatable risk decisions
+Large security data set analysis (ELK/Splunk,equivalent) & management
+
+Requirements
+BS degree in Computer Science, Computer Engineering, Electrical Engineering, or 5+ years equivalent technology experience. Masters in a relevant field is appreciated
+8+ years of demonstrated experience with focus in areas such as systems, network or security
+Previous hands on and high level experience in systems administration, network administration, or large environment security engineering
+Strong demonstrated knowledge of web protocols and an in-depth knowledge of Linux/Unix tools and architecture
+Fluency with AWS
+Comprehension of algorithms and processes for programmatic automation via scripting or programming languages (Python, Ruby, shell, perl, etc.)
+Well-rounded background in host, network and application security
+Maturity, judgment, mentoring, nurturing, negotiation/influence skills, analytical skills, and team leader skills
+Thrive in a fast-paced environment
+Particularly strong communication skills
+
+Bonus Points
+Masters from a Technical Science, Engineering, or Statistics program
+Fluency with AWS
+Fluency with GO
