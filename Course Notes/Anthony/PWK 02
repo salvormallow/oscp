@@ -1,0 +1,38 @@
+PWK 02
+
+Locating Files in Linux
+- Find, Locate, and Which
+
+locate:
+- Use the updatedb command to build local database of all files on filesystem.
+- locate queries database.
+
+which:
+- Search directories that are defined in the $PATH variable. Returns full path.
+
+find:
+- Aggressive search tool, recursively search any given path for various files.
+
+Exercises 1.1.4:
+
+1. ---
+2. locate plink.exe --- (/usr/share/windows-binaries/plink.exe)
+3. find / -name dnsenum --- (/usr/share/doc/dnsenum) --- cat /usr/share/doc/dnsenum/README.md
+
+Managing Services
+- Kali ships with several preinstalled services (SSH, HTTP, MySQL) which should be stopped when not in use.
+
+Exercises 1.2.4:
+1. ---
+2. ---
+3. ---
+---------------------------------------------------------------------------------------------
+TOOLS/COMMANDS
+
+locate, which, find
+
+dnsenum: Enumerates DNS information of a domain, discovers non-contiguous IP blocks.
+systemctl: Used to start/stop/status services (systemctl start ssh). Use enable command to start service automatically.
+netstat: Print network connections, routing tables, interface statistics, etc.
+apache: HTTP service, handy for hosting a site or providing platform for downloading files to victim machine.
+rcconf/sysv-rc-conf: More granular control of services.

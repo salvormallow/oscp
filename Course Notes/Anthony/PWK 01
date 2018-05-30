@@ -76,3 +76,20 @@ Simulated Clients
 - Hints/ifnormation will lead to finding simulated clients.
 - Thorough post-exploitation gathering may provide information.
 - Clients will perform action at different time intervals (one action per minute, etc.).
+
+Windows 7 Client
+- Can be used for buffer overflow, testing payloads, or compiling Windows exploits.
+- Will be powered off and reverted after VPN disconnect
+- Power on when connecting to VPN.
+
+Unlocking Networks
+- Certain vulnerable servers will contain a network-secret.txt file with an MD5 hash.
+- Hashes unlock additional networks in control panel.
+
+Reporting
+1. What was the objective, keep in mind the objective always.
+2. Audience. Who is reading this? Executive Summary, Technical Details, etc. Meaningful content.
+3. Use output (text/screenshots) to make a point.
+4. Length does not equal quality. Report should be as long as it needs to be, no longer.
+5. Outline before starting.
+6. Be consistent, spelling.
