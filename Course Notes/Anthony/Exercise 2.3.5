@@ -1,0 +1,17 @@
+Exercise 2.3.5: Port 110 Wireshark Capture
+
+1. Issued command: 
+	nc -nv <IP ADDRESS> 110, received the following
+		(UNKNOWN) [10.11.1.72] 110 (pop3) open
+		+OK beta POP3 server (JAMES POP3 Server 2.3.2) ready
+
+2. Three-Way Handshake (SYN | SYN,ACK | ACK) between 10.11.0.126 and 10.11.1.72.
+	- Session Close (FIN, ACK)
+
+3.  TCP Stream Shows
+	
+	+OK beta POP3 server (JAMES POP3 Server 2.3.2) ready 
+	USER offsec
+	PASS tryharder
+
+4./5. tcp.port==110
