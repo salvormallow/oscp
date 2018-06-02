@@ -35,4 +35,18 @@ IPs that responded to ping in 10.11.1.0/24
 10.11.1.237
 10.11.1.238
 
+ncat tutorial
+
+ncat is a program that allows the user to open an SSL encrypted tunnel between two devices.  This tunnel can be used to transfer files or send messages.  Ncat also allows launching a program and linking the stdin, stdout, and stderr to the TCP tunnel allowing effective use of command line applications from a remote endpoint.  This   This was accomplished between the Kali VM on VPN and the hosted windows desktop by utilizing the following commands:
+
+On the windows VM run the following:
+
+ncat.exe --exec cmd -vnl 8000 --ssl
+
+This command launches an ncat session in listening mode on port 8000.  It will also create a cmd process and redirect the stdin, stdout, and stderr into the ncat tunnnel.  
+
+On the Kali VM, the following was executed to connect to the open session:
+
+ncat -v 10.11.12.113 8000 --ssl
+
 
