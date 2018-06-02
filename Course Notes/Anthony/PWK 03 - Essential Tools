@@ -1,0 +1,54 @@
+PWK 03 - Essential Tools
+
+- We often encounter situations we do not fully understand. We wish to uncover more information.
+
+Netcat: Versatile tool, can read and write to TCP and UDP ports. Runs in two modes, client and server.
+
+---Connecting to a Port---
+
+Why connect to a port?
+1. Check if a port is open or closed.
+2. Read a banner from the port.
+3. Connect to a network service manually.
+
+Example: Use netcat to check if TCP port 80 (HTTP) is open.
+	nc -nv 10.11.1.72 80
+
+- If port is open, we can converse with service using netcat.
+
+---Listening on a Port---
+
+Why listen on a port?
+1. Network debugging client applications.
+2. Receiving a TCP/UDP connection.
+
+Example: Use netcat to connect to session on port 4444
+	nc -nlvp 4444 (open session on server)
+	nc -nv 10.11.20.127 4444 (connect to session from client)
+
+1. Which machine acted as the netcat server?
+	- The server is the machine listening for a connection on port 4444.
+
+2. Which machine acted as the netcat client?
+	- The client is the machine connecting over port 4444
+
+3. On which machine was port 4444 actually opened?
+	- The server.
+
+4. Switches: 
+	l: listen mode
+	n: no DNS lookup, numeric-only
+	v: verbose
+	p: local port number
+
+---Transferring Files---
+
+What is going on?
+- We are able to transfer files, both text and binary, from one computer to another.
+- We can setup a netcat listener and redirect incoming input into a file.
+
+Example: Use netcat to connect to listener and redirect input to incoming.exe file. Push wget.exe
+	nc -nlvp 4444 > incoming.exe (listener)
+	nc -nv 10.11.20.127 4444 < /usr/share/windows-binaries/wget.exe
+
+	
