@@ -1,3 +1,10 @@
+TIPS N TRICKS
+
+to update Kali key:
+wget -q -O - archive.kali.org/archive-key.asc | apt-key add
+
+---------pingsweep-
+
 IPs that responded to ping in 10.11.1.0/24
 
 10.11.1.5
@@ -35,9 +42,18 @@ IPs that responded to ping in 10.11.1.0/24
 10.11.1.237
 10.11.1.238
 
-ncat tutorial
+
+----------------ncat tutorial----------------
 
 ncat is a program that allows the user to open an SSL encrypted tunnel between two devices.  This tunnel can be used to transfer files or send messages.  Ncat also allows launching a program and linking the stdin, stdout, and stderr to the TCP tunnel allowing effective use of command line applications from a remote endpoint.  This   This was accomplished between the Kali VM on VPN and the hosted windows desktop by utilizing the following commands:
+
+To create a reverse shell from Windows to Kali
+
+On the Kali VM run:
+
+
+
+To connect to SSL Windows ncat with unencrypted ncat from linux:
 
 On the windows VM run the following:
 
@@ -47,6 +63,144 @@ This command launches an ncat session in listening mode on port 8000.  It will a
 
 On the Kali VM, the following was executed to connect to the open session:
 
-ncat -v 10.11.12.113 8000 --ssl
+ncat -v 10.11.12.113 8000
+
+Ncat: Version 7.60 ( https://nmap.org/ncat )
+Ncat: Connected to 10.11.12.113:8000.
+
+====SKIPPED==== exercise 2 and 3
+
+-------------------Wireshark 2.3.5-------------------
+
+In order to find devices with port 110 open to nc to, I used nmap to conduct a simple port scan.
+
+nmap -oG - -p 110 10.11.1.0/24 | grep open
+
+Here are the results:
+
+Host: 10.11.1.24 ()	Ports: 110/open/tcp//pop3///
+Host: 10.11.1.72 ()	Ports: 110/open/tcp//pop3///
+Host: 10.11.1.116 ()	Ports: 110/open/tcp//pop3///
+Host: 10.11.1.217 ()	Ports: 110/open/tcp//pop3///
+Host: 10.11.1.229 ()	Ports: 110/open/tcp//pop3///
+
+1. 
+Used the following commands:
+nc -nv 10.11.1.229 110
+USER offsec
+PASS offsec
+2.
+The session three way handshake consists of:
+SYN
+SYN, ACK
+ACK
+3.
+The TCP stream condensed the traffic to:
++OK POP3
+USER offsec
+PASS offsec
+4. The display filter is set above the log display table.  To filter for 110 traffic
+
+tcp.port == 110
+
+5. The capture filter is set under Capture->Capture Filters...  I created the following rule:
+POP3 port 110
+The capture filter is applied at the interface selection screen.
+
+----------tcpdump---------
+
+tcpdump is a cli tool that allows you to perform many of the same functions as wireshark, creating and reading packet captures.
+
+1. To perform the same actions as in the wireshark exercise:
+
+#this captures the traffic with a tcp 110 capture filter
+tcpdump -i tap0 -w ./pop3.pcap port 110
+
+#display the cap 
+tcpdump -r ./pop3.pcap
+
+20:17:56.120993 IP kali.34558 > 10.11.1.229.pop3: Flags [S], seq 1325890149, win 29200, options [mss 1460,sackOK,TS val 4113027626 ecr 0,nop,wscale 7], length 0
+20:17:56.224603 IP 10.11.1.229.pop3 > kali.34558: Flags [S.], seq 2996872680, ack 1325890150, win 64240, options [mss 1321,nop,wscale 0,nop,nop,TS val 0 ecr 0,nop,nop,sackOK], length 0
+
+#In order to view the data as hex, the following command was used:
+tcpdump -r pop3.txt -X
+
+2.
+#This allowed me to see the commands being sent:
+.'.*+OK.POP3..
+....USER.offsec.
+....PASS.offsec.
+
+--------------Open Web Information Gathering------------------
+
+site:heartflow.com
+178 results
+
+====SKIPPED====
+
+----------------Email Harvesting-------------------------
+the harvester is a tool used to scrape a search engine for email addresses from a specified domain. 
+
+theharvester -d heartflow.com -b google > google.txt
+
+[+] Emails found:
+------------------
+info@heartflow.com
+ssankaran@heartflow.com
+last@heartflow.com
+bforrest@heartflow.com
+ctaylor@heartflow.com
+jekim@heartflow.com
+adebus@heartflow.com
+kpatterson@heartflow.com
+cernst@heartflow.com
+ryousfi@heartflow.com
+kbharadwaj@heartflow.com
+xxxx@heartflow.com
+jstevens@heartflow.com
+hito@heartflow.com
+Syseng@heartflow.com
+syseng@heartflow.com
+julia_westbom@heartflow.com
+cver...@heartflow.com
 
 
+theharvester -d heartflow.com -b bing > bing.txt
+
+[+] Emails found:
+------------------
+No emails found
+
+theharvester -d heartflow.com -b yahoo > yahoo.txt
+
+[+] Emails found:
+------------------
+No emails found
+
+
+Google was my most effective search engine.
+
+----------------Additional Resources---------------------
+
+Whois info for heartflow.com is shown below.
+
+whois heartflow.com
+
+ Domain Name: HEARTFLOW.COM
+   Registry Domain ID: 86343294_DOMAIN_COM-VRSN
+   Registrar WHOIS Server: whois.godaddy.com
+   Registrar URL: http://www.godaddy.com
+   Updated Date: 2018-05-08T16:23:05Z
+   Creation Date: 2002-05-07T18:18:25Z
+   Registry Expiry Date: 2020-05-07T18:18:25Z
+   Registrar: GoDaddy.com, LLC
+   Registrar IANA ID: 146
+   Registrar Abuse Contact Email: abuse@godaddy.com
+   Registrar Abuse Contact Phone: 480-624-2505
+   Domain Status: clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited
+   Domain Status: clientRenewProhibited https://icann.org/epp#clientRenewProhibited
+   Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
+   Domain Status: clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited
+   Name Server: NS63.DOMAINCONTROL.COM
+   Name Server: NS64.DOMAINCONTROL.COM
+   DNSSEC: unsigned
